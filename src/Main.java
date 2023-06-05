@@ -8,20 +8,20 @@ public class Main {
     }
     public static int[] generateRandomArray() {
         java.util.Random random = new java.util.Random();
-        int[] arr = new int[30];
+        int[] expense = new int[30];
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(100_000) + 100_000;
+        for (int i = 0; i < expense.length; i++) {
+            expense[i] = random.nextInt(100_000) + 100_000;
         }
-        return arr;
+        return expense;
     }
     public static void task1() {
         System.out.println("Задача1");
-        int[] arr = generateRandomArray();
+        int[] expense = generateRandomArray();
         int sum = 0;
 
-        for (int i = 0; i < arr.length; i++) {
-            sum = sum + arr[i];
+        for (int i = 0; i < expense.length; i++) {
+            sum = sum + expense[i];
         }
         System.out.println("Сумма затрат за месяц составила " + sum);
     }
@@ -32,32 +32,38 @@ public class Main {
 //    } По такому варианту выписывает несколько результатов!!!!===
     public static void task2() {
         System.out.println("Задача2");
-        int[] arr = generateRandomArray();
-        int maxArr = 100_000;
-        int minArr = 200_000;
+        int[] expense = generateRandomArray();
+        int maxArr = expense[0];
+        int minArr = expense[0];
+  //      expense[0] = 100_000;
+//        int minArr = 200_000;
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > maxArr) {
-                maxArr = arr[i];
-            }
-        }
-        for (int element : arr) {
+//        for (int i = 0; i < expense.length; i++) {
+//            if (expense[i] > maxArr) {
+//                maxArr = expense[i];
+//            }
+//        }
+        for (int element : expense) {
             if (element < minArr) {
                 minArr = element;
+            }
+            if (element > maxArr) {
+                maxArr = element;
             }
         }
         System.out.println("Минимальная сумма трат за день составила " + minArr + " рублей. Максимальная сумма трат за день составила " + maxArr + " рублей");
     }
     public static void task3() {
-        int[] arr = generateRandomArray();
+        System.out.println("Задача3");
+        int[] expense = generateRandomArray();
         double sum = 0;
-        int numberOfDays = 30;
+  //      int numberOfDays = 30;
 
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+        for (int i = 0; i < expense.length / 30; i++) {
+            sum += expense[i];
         }
-        double average = sum / numberOfDays;
-        System.out.println("Средняя сумма трат за месяц составила " + average + " рублей");
+  //      double average = sum / numberOfDays;
+        System.out.println("Средняя сумма трат за месяц составила " + sum / expense.length + " рублей");
     }
     public static void task4 () {
         System.out.println("Задача4");
