@@ -59,7 +59,7 @@ public class Main {
         double sum = 0;
   //      int numberOfDays = 30;
 
-        for (int i = 0; i < expense.length / 30; i++) {
+        for (int i = 0; i < expense.length; i++) {
             sum += expense[i];
         }
   //      double average = sum / numberOfDays;
